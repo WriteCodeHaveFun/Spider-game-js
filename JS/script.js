@@ -101,6 +101,32 @@ document.body.append(spider);
 
 spider.jumpsBeforeLandedCount = 0;
 spider.isGluedToObj = new Set();
+spider.moveRight = moveRight; //!!!
+
+// class Spider{
+//     constructor(){ // 
+//         // this = document.createElement(elemType);
+
+//         this.style.backgroundColor = 'blue';
+//         this.style.position = 'absolute';
+//         this.style.width = 100 + 'px';
+//         this.style.height = 100 + 'px';
+//         this.style.top = this.style.left = 0;
+//         // spider.style.transition =  'top 0.7s cubic-bezier(0.37, 0.12, 0.78, 1.05) 0s';
+//         // this.style.backgroundImage = `url(Textures/spider-texture.jpg)`;
+//         this.style.backgroundSize = `contain`;
+
+
+//         this.jumpsBeforeLandedCount = 0;
+//         this.isGluedToObj = new Set();
+//     }
+//     moveRight(){
+//         moveRight(e, this);
+//     }
+// }
+
+// let spider2 = new Spider('div');
+// document.body.append(spider2);
 
 // *** End of Creating of inGame elements
 
@@ -159,7 +185,7 @@ window.addEventListener('resize', objPositionSettings);
 
 function onKeyDown(e){ //обработать одновременное нажатие нескольких клавиш одновременно
     if(e.code == keySettings.moveLeft) moveLeft(e, spider);
-    if(e.code == keySettings.moveRight) moveRight(e, spider);
+    if(e.code == keySettings.moveRight) spider.moveRight(e, spider); //!!!!
     if(e.code == keySettings.jump) jump(spider);
     // if(e.code == 'KeyS') gravity(spider);
     if(e.code == keySettings.moveUp) moveUp(e, spider);
@@ -180,6 +206,7 @@ function onKeyUp(e){
 }
 
 function moveRight(e, element){
+    // console.log(this); //!!!
 
     // console.log(window.innerWidth);
 
